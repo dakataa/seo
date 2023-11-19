@@ -2,12 +2,10 @@
 
 namespace Dakataa\Seo;
 
-use Dakataa\Seo\Service\Breadcrumb;
-use Dakataa\Seo\Service\Metadata;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class DakataaSeoBundle extends AbstractBundle
+class DakataaSeoBundle extends Bundle
 {
 	public function build(ContainerBuilder $container): void
 	{
