@@ -33,9 +33,9 @@ class SeoLoader
 		}
 
 		return [
-			'objectReflectionClass' => $objectReflectionClass,
-			'methodReflectionClass' => $methodReflectionClass ?? null,
-			'methodArguments' => $methodArguments
+			$objectReflectionClass,
+			$methodReflectionClass ?? null,
+			$methodArguments
 		];
 	}
 
@@ -50,7 +50,7 @@ class SeoLoader
 			] as $reflectionAttribute
 		) {
 			$attribute = $reflectionAttribute->newInstance();
-			foreach (get_object_vars($attribute) as $property) {
+			foreach (get_object_vars($attribute) as $property => $value) {
 				if($attribute->$property === null) {
 					continue;
 				}
@@ -62,7 +62,7 @@ class SeoLoader
 				$attribute->$property = preg_replace_callback(
 					'|{(.+?)}|',
 					fn($match) => $this->expressionLanguage->evaluate(rtrim(ltrim($match[0], '{'), '}'), $methodArguments),
-					$attribute->$property
+					$value
 				);
 
 			}

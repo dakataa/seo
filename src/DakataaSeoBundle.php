@@ -11,11 +11,5 @@ class DakataaSeoBundle extends AbstractBundle
 {
 	public function build(ContainerBuilder $container): void
 	{
-		$container
-			->register(Breadcrumb::class, Breadcrumb::class);
-
-		$container
-			->register(Metadata::class, Metadata::class);
-
 	}
 }
