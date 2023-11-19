@@ -1,6 +1,6 @@
 <?php
 
-namespace Dakataa\Seo\Service;
+namespace Dakataa\Seo\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

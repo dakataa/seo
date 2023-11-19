@@ -64,9 +64,8 @@ class Metadata
     public function getTitle(): string
     {
 	    return implode(' ', array_filter([
-		    $this->options['prefix'],
-			implode($this->options['title']['separator'], $this->title) ?: $this->options['default'] ?: '',
-		    $this->options['affix'],
+		    $this->options['title']['prefix'], implode($this->options['title']['separator'], $this->title) ?: $this->options['title']['default'] ?: '',
+		    $this->options['title']['affix'],
 	    ]));
     }
 
