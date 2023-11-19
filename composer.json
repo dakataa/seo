@@ -20,5 +20,6 @@
     "symfony/options-resolver": "^6.3",
     "symfony/dependency-injection": "^6.3",
     "symfony/config": "^6.3"
-  }
+  },
+  "minimum-stability": "dev"
 }
