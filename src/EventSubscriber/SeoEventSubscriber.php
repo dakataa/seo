@@ -40,15 +40,15 @@ class SeoEventSubscriber implements EventSubscriberInterface
 
 		[$controllerObject, $methodName] = $event->getController();
 
-		foreach ($this->loader->loadBreadcrumb($controllerObject, $methodName, $event->getArguments()) as $breadcrumbItem) {
+		foreach ($this->loader->loadBreadcrumb($controllerObject, $methodName, $event->getNamedArguments()) as $breadcrumbItem) {
 			$this->breadcrumb->add($breadcrumbItem);
 		}
 
-		foreach ($this->loader->loadAttribute(Title::class, $controllerObject, $methodName, $event->getArguments()) as $title) {
+		foreach ($this->loader->loadAttribute(Title::class, $controllerObject, $methodName, $event->getNamedArguments()) as $title) {
 			$this->metadata->addTitle($title);
 		}
 
-		foreach ($this->loader->loadAttribute(Meta::class, $controllerObject, $methodName, $event->getArguments()) as $meta) {
+		foreach ($this->loader->loadAttribute(Meta::class, $controllerObject, $methodName, $event->getNamedArguments()) as $meta) {
 			$this->metadata->addMeta($meta);
 		}
 
