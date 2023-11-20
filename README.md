@@ -37,12 +37,11 @@ class FrontController extends AbstractController {
 	
 	#[Title('Products')]
 	#[Meta('description', 'Welcome to my SEO Homepage')]
-	#[BreadcrumbItem('Products')]
+	#[BreadcrumbItem('Products', route: 'app_front_products')]
 	#[BreadcrumbItem('{product}')]
 	#[Route('/products/view/{id}')]
 	#[Entity('product', expr: 'repository.findById(id)', class: Product::class)]
 	public function productView(Metadata $metadata, $product) {
-		$metadata->setTitle('Second way to set Page Title');
 	}
 	
 }
